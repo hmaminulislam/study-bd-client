@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBell, FaBuromobelexperte, FaClock, FaStar, FaUsers } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
     const course = useLoaderData()
@@ -16,7 +16,6 @@ const CourseDetails = () => {
       body,
       instructorImg,
     } = course;
-    console.log(course)
     return (
       <div className="md:flex flex-row justify-between px-5 sm:px-10 md:px-20 mt-10">
         <div className="md:w-9/12 w-full mr-8">
@@ -76,9 +75,13 @@ const CourseDetails = () => {
               <h4 className="font-semibold">{rating}</h4>
             </div>
           </div>
-          <div className='mt-5'>
-            <h3 className="text-xl font-semibold text-red-500">Price: ${price}</h3>
-            <button className='btn btn-primary w-full mt-8'>BUY NOW</button>
+          <div className="mt-5">
+            <h3 className="text-xl font-semibold text-red-500">
+              Price: ${price}
+            </h3>
+            <Link to="/checkout">
+              <button className="btn btn-primary w-full mt-8">BUY NOW</button>
+            </Link>
           </div>
         </div>
       </div>

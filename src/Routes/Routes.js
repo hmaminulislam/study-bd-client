@@ -1,7 +1,9 @@
 import Blog from "../components/Blog/Blog";
+import Checkout from "../components/Checkout/Checkout";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Courses } = require("../components/Courses/Courses");
@@ -36,8 +38,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/course/:id",
-        loader: ({params}) => fetch(`https://study-bd-server.vercel.app/course/${params.id}`),
-        element: <CourseDetails></CourseDetails>
+        loader: ({ params }) =>
+          fetch(`https://study-bd-server.vercel.app/course/${params.id}`),
+        element: <CourseDetails></CourseDetails>,
+      },
+      {
+        path: "checkout",
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
       },
     ],
   },

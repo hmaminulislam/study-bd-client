@@ -5,7 +5,13 @@ import { FaBookReader } from "react-icons/fa";
 import {AuthContext} from '../contexts/AuthProvider'
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+  // Log out button handle
+  const logOutBtnHandle = () => {
+    logOut()
+    .then(() => {})
+    .catch(e=> console.error(e))
+  }
     return (
       <div className="navbar bg-base-100 py-5 px-5 sm:px-10 md:px-20">
         <div className="navbar-start">
@@ -44,7 +50,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link className="text-xl md:text-4xl sm:text-3xl sm:font-bold font-semibold text-emerald-600 flex items-center">
+          <Link className="text-xl md:text-4xl sm:text-3xl sm:font-bold font-semibold text-violet-500 flex items-center">
             <FaBookReader className="text-2xl sm:text-4xl md:text-5xl mr-3"></FaBookReader>
             STUDY BD
           </Link>
@@ -64,18 +70,21 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user?.photoURL ? (
-            <span
-              className="tooltip tooltip-left"
-              data-tip={user?.displayName}
-            >
-              <img
-                className="w-12 rounded-full h-12"
-                src={user.photoURL}
-                alt=""
-              />
-            </span>
+            <>
+              <span
+                className="tooltip tooltip-left"
+                data-tip={user?.displayName}
+              >
+                <img
+                  className="w-12 rounded-full h-12"
+                  src={user.photoURL}
+                  alt=""
+                />
+              </span>
+              <button onClick={logOutBtnHandle} className='btn btn-warning ml-3'>Log out</button>
+            </>
           ) : (
-            <Link className="btn" to="login">
+            <Link className="btn btn-primary" to="login">
               Log in
             </Link>
           )}
