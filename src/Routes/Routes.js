@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import Blog from "../components/Blog/Blog";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Login from "../components/Login/Login";
