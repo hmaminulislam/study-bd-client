@@ -1,0 +1,7 @@
+.hero {
+    background-image: url('../../assets/img/parallax9.jpg');
+}
+.hero-title {
+    line-height: 60px;
+    text-transform: uppercase;
+}
