@@ -1,8 +1,11 @@
 import React from 'react';
+import { useContext } from "react";
 import { Link } from 'react-router-dom';
 import { FaBookReader } from "react-icons/fa";
+import {AuthContext} from '../contexts/AuthProvider'
 
 const Navbar = () => {
+  const {user} = useContext(AuthContext)
     return (
       <div className="navbar bg-base-100 py-5 px-5 sm:px-10 md:px-20">
         <div className="navbar-start">
@@ -42,8 +45,9 @@ const Navbar = () => {
             </ul>
           </div>
           <Link className="text-xl md:text-4xl sm:text-3xl sm:font-bold font-semibold text-emerald-600 flex items-center">
-            <FaBookReader className='text-2xl sm:text-4xl md:text-5xl mr-3'></FaBookReader>
-            STUDY BD</Link>
+            <FaBookReader className="text-2xl sm:text-4xl md:text-5xl mr-3"></FaBookReader>
+            STUDY BD
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -59,7 +63,22 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn" to='login'>Log in</Link>
+          {user?.photoURL ? (
+            <span
+              className="tooltip tooltip-left"
+              data-tip={user?.displayName}
+            >
+              <img
+                className="w-12 rounded-full h-12"
+                src={user.photoURL}
+                alt=""
+              />
+            </span>
+          ) : (
+            <Link className="btn" to="login">
+              Log in
+            </Link>
+          )}
         </div>
       </div>
     );
