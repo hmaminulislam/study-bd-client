@@ -48,9 +48,12 @@ const Navbar = () => {
               <li>
                 <Link to="blog">Blog</Link>
               </li>
+              <li>
+                <Link to="faq">Faq</Link>
+              </li>
             </ul>
           </div>
-          <Link className="text-xl md:text-4xl sm:text-3xl sm:font-bold font-semibold text-violet-500 flex items-center">
+          <Link to='/' className="text-xl md:text-4xl sm:text-3xl sm:font-bold font-semibold text-violet-500 flex items-center">
             <FaBookReader className="text-2xl sm:text-4xl md:text-5xl mr-3"></FaBookReader>
             STUDY BD
           </Link>
@@ -65,6 +68,9 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="blog">Blog</Link>
+            </li>
+            <li>
+              <Link to="faq">Faq</Link>
             </li>
           </ul>
         </div>

@@ -1,12 +1,10 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import swal from "sweetalert";
 
 const Checkout = () => {
-    const location = useLocation();
-    const course = location.state;
+    const course = useLoaderData()
     const { img, price, duration, name, lectures, instructorImg } = course;
-    console.log(location.state)
     //order button click success message
     const orderBtnHandle = () => {
         swal("Good job!", "Your Order Done", "success");

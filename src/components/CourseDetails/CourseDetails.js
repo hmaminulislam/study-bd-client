@@ -5,6 +5,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const CourseDetails = () => {
     const course = useLoaderData()
     const {
+      id,
       name,
       img,
       price,
@@ -79,7 +80,7 @@ const CourseDetails = () => {
             <h3 className="text-xl font-semibold text-red-500">
               Price: ${price}
             </h3>
-            <Link to="/checkout" state={course}>
+            <Link to={`/checkout/${id}`}>
               <button className="btn btn-primary w-full mt-8">Checkout</button>
             </Link>
           </div>
