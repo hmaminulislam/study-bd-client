@@ -32,14 +32,14 @@ const CourseDetails = () => {
             <button className="btn btn-primary">Download PDF</button>
           </div>
           <div>
-            <h3 className="text-2xl font-semibold mb-5 md:mt-10 mt-16 dark:text-white">
-              Course Features
-            </h3>
             <img
-              className="w-40 h-40 mx-auto rounded-full mt-5"
+              className="w-40 h-40 mx-auto rounded-full mt-16"
               src={instructorImg}
               alt=""
             />
+            <h3 className="text-2xl text-center font-semibold mb-5 md:mt-10 dark:text-white">
+              Instructor
+            </h3>
             <div className="flex items-center justify-between border-b-2 border-zinc-100 px-3 py-3 mt-5 dark:text-cyan-700">
               <div className="flex items-center">
                 <FaClock className="text-cyan-700 mr-2"></FaClock>
@@ -77,7 +77,7 @@ const CourseDetails = () => {
             </div>
           </div>
           <div className="mt-5">
-            <h3 className="text-xl font-semibold text-red-500">
+            <h3 className="text-xl font-semibold text-primary">
               Price: ${price}
             </h3>
             <Link to={`/checkout/${id}`}>

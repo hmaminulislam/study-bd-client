@@ -13,9 +13,9 @@ const Checkout = () => {
         swal("Good job!", "Your Order Done", "success");
     }
     return (
-      <div className="lg:flex justify-between px-5 sm:px-10 md:px-20 mt-20">
-        <div className="lg:w-9/12 w-full md:mr-12 sm:mr-2 mt-6 mb-10 lg:mb-0">
-          <h2 className="text-4xl font-semibold mb-7 text-center text-sky-600">
+      <div className="lg:flex justify-between px-5 sm:px-10 md:px-20 py-20 dark:bg-black">
+        <div className="lg:w-9/12 w-full md:mr-12 sm:mr-2 mt-6 mb-5 lg:mb-0">
+          <h2 className="text-4xl font-semibold mb-10 text-center text-sky-600">
             Proceed to Checkout
           </h2>
           <div className="card md:flex-row flex-col card-side bg-base-100 shadow-xl items-center">
@@ -62,7 +62,7 @@ const Checkout = () => {
               <span className="text-sky-700 uppercase">${price}</span>
             </p>
           </div>
-          <button onClick={orderBtnHandle} className="btn btn-primary w-full">Order Now</button>
+          <button onClick={orderBtnHandle} className="btn btn-primary w-full mt-2">Order Now</button>
         </div>
       </div>
     );

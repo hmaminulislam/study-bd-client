@@ -75,7 +75,7 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="text-sm text-center md:text-4xl sm:text-3xl sm:font-bold font-semibold text-violet-500 sm:flex items-center"
+            className="text-sm text-center md:text-4xl sm:text-3xl sm:font-bold font-semibold text-violet-500 sm:flex items-center dark:text-white"
           >
             <img style={{ maxWidth: "80px" }} src={Logo} alt="" />
             <span className="sm:mr-5">UTeachy</span>
@@ -116,7 +116,7 @@ const Navbar = () => {
               </span>
               <span
                 onClick={logOutBtnHandle}
-                className="ml-3 cursor-pointer text-xl sm:text-3xl text-primary"
+                className="ml-3 cursor-pointer text-xl sm:text-3xl text-primary dark:text-white"
               >
                 <HiArrowRightOnRectangle></HiArrowRightOnRectangle>
               </span>

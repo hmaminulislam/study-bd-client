@@ -5,7 +5,9 @@ import { AuthContext } from '../contexts/AuthProvider';
 
 
 const Register = () => {
+
   const { createUser, userProfileUpdate } = useContext(AuthContext);
+
   //Register form button handle
   const submitbtnHandle = (e) => {
     e.preventDefault();
@@ -21,6 +23,7 @@ const Register = () => {
       })
       .catch((error) => console.error(error));
   }
+
   // User Full name and PhotoURL update
   const userInfoUpdate = (fullName, photoUrl) => {
     const profile = {
@@ -30,7 +33,7 @@ const Register = () => {
     userProfileUpdate(profile)
   }
     return (
-      <div className="flex justify-center pt-8">
+      <div className="flex justify-center pt-8 dark:bg-black">
         <div className="card w-full max-w-sm shadow-2xl bg-zinc-100">
           <form onSubmit={submitbtnHandle} className="card-body">
             <div className="form-control">

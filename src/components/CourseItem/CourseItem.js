@@ -5,21 +5,14 @@ import { Link } from 'react-router-dom';
 const CourseItem = ({course}) => {
     const {id, name, body, price, img, rating} = course;
     return (
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card w-full bg-base-100 shadow-xl">
         <figure>
-          <img className="h-60" src={img} alt="" />
+          <img className="h-60 w-full" src={img} alt="" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
           <p>
             {body.slice(0, 150)} ...
-            <Link
-              to={`/course/${id}`}
-              className="text-fuchsia-600 font-bold"
-            >
-              {" "}
-              More
-            </Link>
           </p>
           <div className="flex justify-between mt-3">
             <div>
@@ -33,7 +26,7 @@ const CourseItem = ({course}) => {
             </div>
             <div>
               <Link to={`/course/${id}`}>
-                <button className="btn btn-primary">Buy Now</button>
+                <button className="btn btn-primary">Details</button>
               </Link>
             </div>
           </div>

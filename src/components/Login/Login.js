@@ -7,12 +7,15 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Login = () => {
+
   const [error, setError] = useState(null)
   const { loginWithEmailPassword, googleSignIn, githubSignIn } =
     useContext(AuthContext);
+
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
     const navigate = useNavigate()
+
   //Login form button handle
   const submitbtnHandle = (e) => {
     e.preventDefault();
@@ -31,6 +34,7 @@ const Login = () => {
         setError(error.message)
       });
   };
+
   //google sign in button handle
   const googleBtnHandle = () => {
     googleSignIn()
@@ -40,6 +44,7 @@ const Login = () => {
     })
     .catch((e) => console.log(e));
   }
+
   //github sign in button handle
   const githubBtnHandle = () => {
     githubSignIn()
@@ -48,9 +53,10 @@ const Login = () => {
       navigate(from, { replace: true });
     })
     .catch(e => console.log(e))
+
   }
   return (
-    <div className="flex justify-center pt-10">
+    <div className="flex justify-center pt-10 dark:bg-black pb-12">
       <div className="card w-full max-w-sm shadow-2xl bg-zinc-100">
         {error && <p className='text-red-500 font-semibold text-center pt-5'>{error}</p>}
         <form onSubmit={submitbtnHandle} className="card-body">
