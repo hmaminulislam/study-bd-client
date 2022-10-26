@@ -12,13 +12,13 @@ const Checkout = () => {
         swal("Good job!", "Your Order Done", "success");
     }
     return (
-      <div className="flex justify-between px-5 sm:px-10 md:px-20 mt-20">
-        <div className="w-9/12 mr-12 mt-6">
+      <div className="lg:flex justify-between px-5 sm:px-10 md:px-20 mt-20">
+        <div className="lg:w-9/12 w-full md:mr-12 sm:mr-2 mt-6 mb-10 lg:mb-0">
           <h2 className="text-4xl font-semibold mb-7 text-center text-sky-600">
             Proceed to Checkout
           </h2>
-          <div className="card card-side bg-base-100 shadow-xl items-center">
-            <img className="w-5/12 my-3 mx-5" src={img} alt="" />
+          <div className="card md:flex-row flex-col card-side bg-base-100 shadow-xl items-center">
+            <img className="md:w-5/12 md:my-3 md:mx-5" src={img} alt="" />
             <div className="card-body">
               <h2 className="card-title">{name}</h2>
               <p className="text-gray-800 font-semibold">
@@ -34,13 +34,13 @@ const Checkout = () => {
                 </span>
               </p>
             </div>
-            <div className="mr-5 text-sky-700 font-semibold">
-              <p>PRICE</p>
+            <div className="mr-5 text-sky-700 font-semibold flex md:flex-col pb-3 md:pb-0">
+              <p className='mr-1 md:mr-0'>PRICE</p>
               <p>${price}</p>
             </div>
           </div>
         </div>
-        <div className="w-3/12">
+        <div className="lg:w-3/12 w-full">
           <img
             className="w-28 h-28 mx-auto rounded-full"
             src={instructorImg}
