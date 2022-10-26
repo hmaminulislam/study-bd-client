@@ -79,7 +79,7 @@ const CourseDetails = () => {
             <h3 className="text-xl font-semibold text-red-500">
               Price: ${price}
             </h3>
-            <Link to="/checkout">
+            <Link to="/checkout" state={course}>
               <button className="btn btn-primary w-full mt-8">Checkout</button>
             </Link>
           </div>
