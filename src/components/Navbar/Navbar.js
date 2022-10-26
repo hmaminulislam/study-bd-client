@@ -2,20 +2,40 @@ import React from 'react';
 import { useContext } from "react";
 import { Link } from 'react-router-dom';
 import {AuthContext} from '../contexts/AuthProvider'
-import Logo from '../../assets/img/logo.jpg'
+import Logo from '../../assets/img/logo.png'
+import { FaSun } from 'react-icons/fa';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { HiArrowRightOnRectangle } from "react-icons/hi2";
 
 const Navbar = () => {
+
+  const [theme, setTheme] = useState("light")
   const { user, logOut } = useContext(AuthContext);
+
+  //theme dark and light mode on off
+  useEffect( () => {
+    if(theme === "dark") {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme])
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
+
   // Log out button handle
   const logOutBtnHandle = () => {
     logOut()
     .then(() => {})
     .catch(e=> console.error(e))
+    
   }
     return (
-      <div className="navbar bg-base-100 py-5 px-2 sm:px-10 md:px-20">
-        <div className="navbar-start">
-          <div className="dropdown">
+      <div className="navbar bg-base-100 py-5 px-2 sm:px-10 md:px-20 dark:text-white dark:bg-black">
+        <div className="navbar-start dark:bg-black dark:text-white">
+          <div className="dropdown dark:bg-black dark:text-white">
             <label
               tabIndex={0}
               className="btn btn-ghost lg:hidden border-base-300 mr-3"
@@ -53,13 +73,16 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link to='/' className="text-xl md:text-4xl sm:text-3xl sm:font-bold font-semibold text-violet-500 flex items-center">
-            <img style={{maxWidth: '80px'}} src={Logo} alt="" />
-            STUDY BD
+          <Link
+            to="/"
+            className="text-sm text-center md:text-4xl sm:text-3xl sm:font-bold font-semibold text-violet-500 sm:flex items-center"
+          >
+            <img style={{ maxWidth: "80px" }} src={Logo} alt="" />
+            <span className="sm:mr-5">UTeachy</span>
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
+        <div className="navbar-center hidden lg:flex dark:bg-black dark:text-white">
+          <ul className="menu menu-horizontal p-0 dark:bg-black dark:text-white">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -74,7 +97,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end dark:bg-black">
+          <div onClick={handleThemeSwitch} className="mr-4 cursor-pointer">
+            <FaSun className="text-xl mr-1"></FaSun>
+            <p className="font-semibold capitalize">{theme}</p>
+          </div>
           {user?.photoURL ? (
             <>
               <span
@@ -87,7 +114,12 @@ const Navbar = () => {
                   alt=""
                 />
               </span>
-              <button onClick={logOutBtnHandle} className='btn btn-warning ml-3'>Log out</button>
+              <span
+                onClick={logOutBtnHandle}
+                className="ml-3 cursor-pointer text-xl sm:text-3xl text-primary"
+              >
+                <HiArrowRightOnRectangle></HiArrowRightOnRectangle>
+              </span>
             </>
           ) : (
             <Link className="btn btn-primary" to="login">

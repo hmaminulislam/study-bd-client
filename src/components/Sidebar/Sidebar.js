@@ -6,7 +6,7 @@ const Sidebar = ({course}) => {
     return (
       <div className="my-5">
         <Link
-          className="text-red-500 font-semibold"
+          className="text-cyan-600 font-semibold"
           to={`/course/${id}`}
         >
           <span className='text-2xl'>•</span> {name}
