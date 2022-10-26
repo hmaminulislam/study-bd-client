@@ -1,9 +1,12 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Navigate, useLoaderData } from 'react-router-dom';
 import swal from "sweetalert";
 
 const Checkout = () => {
-    const course = useLoaderData()
+    const course = useLoaderData();
+    if(!course) {
+      return <Navigate to='/error'></Navigate>
+    }
     const { img, price, duration, name, lectures, instructorImg } = course;
     //order button click success message
     const orderBtnHandle = () => {

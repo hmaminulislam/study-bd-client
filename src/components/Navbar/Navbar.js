@@ -1,8 +1,8 @@
 import React from 'react';
 import { useContext } from "react";
 import { Link } from 'react-router-dom';
-import { FaBookReader } from "react-icons/fa";
 import {AuthContext} from '../contexts/AuthProvider'
+import Logo from '../../assets/img/logo.jpg'
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -13,7 +13,7 @@ const Navbar = () => {
     .catch(e=> console.error(e))
   }
     return (
-      <div className="navbar bg-base-100 py-5 px-5 sm:px-10 md:px-20">
+      <div className="navbar bg-base-100 py-5 px-2 sm:px-10 md:px-20">
         <div className="navbar-start">
           <div className="dropdown">
             <label
@@ -54,7 +54,7 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to='/' className="text-xl md:text-4xl sm:text-3xl sm:font-bold font-semibold text-violet-500 flex items-center">
-            <FaBookReader className="text-2xl sm:text-4xl md:text-5xl mr-3"></FaBookReader>
+            <img style={{maxWidth: '80px'}} src={Logo} alt="" />
             STUDY BD
           </Link>
         </div>
