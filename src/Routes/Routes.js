@@ -1,6 +1,7 @@
 import Blog from "../components/Blog/Blog";
 import Checkout from "../components/Checkout/Checkout";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import PrivateRoute from "./PrivateRoute";
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

@@ -80,7 +80,7 @@ const CourseDetails = () => {
               Price: ${price}
             </h3>
             <Link to="/checkout">
-              <button className="btn btn-primary w-full mt-8">BUY NOW</button>
+              <button className="btn btn-primary w-full mt-8">Checkout</button>
             </Link>
           </div>
         </div>

@@ -1,29 +1,42 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Login = () => {
+  const [error, setError] = useState(null)
   const { loginWithEmailPassword, googleSignIn, githubSignIn } =
     useContext(AuthContext);
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate()
   //Login form button handle
   const submitbtnHandle = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    setError('')
     loginWithEmailPassword(email, password)
       .then((result) => {
+        toast.success('Login Successful')
         console.log(result.user);
+        navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setError(error.message)
+      });
   };
   //google sign in button handle
   const googleBtnHandle = () => {
     googleSignIn()
     .then((result) => {
       console.log(result.user);
+      navigate(from, { replace: true });
     })
     .catch((e) => console.log(e));
   }
@@ -32,12 +45,14 @@ const Login = () => {
     githubSignIn()
     .then(result => {
       console.log(result.user)
+      navigate(from, { replace: true });
     })
     .catch(e => console.log(e))
   }
   return (
     <div className="flex justify-center pt-10">
       <div className="card w-full max-w-sm shadow-2xl bg-zinc-100">
+        {error && <p className='text-red-500 font-semibold text-center pt-5'>{error}</p>}
         <form onSubmit={submitbtnHandle} className="card-body">
           <div className="form-control">
             <label className="label">

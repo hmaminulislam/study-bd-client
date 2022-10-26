@@ -22,26 +22,32 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState({})
   //Create user with Email and Password
   const createUser = (email, password) => {
+    setLoader(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   //User Login with Email and Password
   const loginWithEmailPassword = (email, password) => {
+    setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   //User Profiel update
   const userProfileUpdate = (profile) => {
+    setLoader(true);
     return updateProfile(auth.currentUser, profile);
   };
   //Google Sign in
   const googleSignIn = () => {
+    setLoader(true);
     return signInWithPopup(auth, googleProvider)
   }
   //Github Sign In
   const githubSignIn = () => {
+    setLoader(true);
     return signInWithPopup(auth, githubProvider)
   }
   //Log out user
   const logOut = () => {
+    setLoader(true);
     return signOut(auth)
   }
   // User On Auth State Changed Observer
