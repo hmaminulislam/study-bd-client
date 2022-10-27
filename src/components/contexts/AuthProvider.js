@@ -70,7 +70,7 @@ const AuthProvider = ({children}) => {
     githubSignIn,
     loader,
     logOut,
-    setLoader
+    setUser
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>

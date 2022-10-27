@@ -18,8 +18,8 @@ const Checkout = () => {
     }
     
     return (
-      <div className="lg:flex justify-between px-5 sm:px-10 md:px-20 py-20 dark:bg-black">
-        <div className="lg:w-9/12 w-full md:mr-12 sm:mr-2 mt-6 mb-5 lg:mb-0">
+      <div className="lg:flex justify-between px-5 sm:px-10 md:px-20 md:py-20 py-12 dark:bg-black">
+        <div className="lg:w-9/12 w-full md:mr-12 sm:mr-2 md:mt-6 mt-0 mb-5 lg:mb-0">
           <h2 className="text-4xl font-semibold mb-10 text-center text-sky-600">
             Proceed to Checkout
           </h2>

@@ -35,7 +35,7 @@ const Navbar = () => {
     return (
       <div className="navbar bg-primary text-white py-5 px-2 sm:px-10 md:px-20 dark:text-white dark:bg-stone-900">
         <div className="navbar-start dark:bg-stone-900 dark:text-white">
-          <div className="dropdown dark:bg-stone-900 dark:text-white">
+          <div className="dropdown dark:bg-stone-900 text-black">
             <label
               tabIndex={0}
               className="btn btn-ghost lg:hidden border-base-300 mr-3"
@@ -122,7 +122,7 @@ const Navbar = () => {
               </p>
             </>
           ) : (
-            <Link className="btn btn-primary" to="login">
+            <Link className="btn bg-white text-black hover:bg-white" to="login">
               Log in
             </Link>
           )}

@@ -9,7 +9,7 @@ import { AuthContext } from '../contexts/AuthProvider';
 const Register = () => {
 
   const [error, setError] = useState(null)
-  const { createUser, userProfileUpdate } = useContext(AuthContext);
+  const { createUser, userProfileUpdate, setUser } = useContext(AuthContext);
 
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -35,6 +35,7 @@ const Register = () => {
       .then((result) => {
         console.log(result.user);
         userInfoUpdate(fullName, photoUrl);
+        setUser(result.user)
         form.reset()
         toast.success("Register Successfull")
         navigate(from, { replace: true });

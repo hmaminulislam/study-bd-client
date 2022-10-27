@@ -12,7 +12,7 @@ const Hero = () => {
               Skill Development Platform
             </h1>
             <p className="mb-5">
-              Start streaming on-demand video lectures today from top level
+              UTeachy start streaming on-demand video lectures today from top level
               instructors Attention heatmaps.
             </p>
             <Link to='courses'>

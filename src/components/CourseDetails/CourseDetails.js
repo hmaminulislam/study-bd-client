@@ -1,8 +1,16 @@
 import React from 'react';
 import { FaBell, FaBuromobelexperte, FaClock, FaStar, FaUsers } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import ReactToPdf from "react-to-pdf";
+
 
 const CourseDetails = () => {
+  const ref = React.createRef();
+  const options = {
+    orientation: "landscape",
+    unit: "in",
+    format: [12, 14],
+  };
     const course = useLoaderData()
     const {
       id,
@@ -18,7 +26,10 @@ const CourseDetails = () => {
       instructorImg,
     } = course;
     return (
-      <div className="md:flex flex-row justify-between px-5 sm:px-10 md:px-20 py-14 dark:bg-black">
+      <div
+        ref={ref}
+        className="md:flex flex-row justify-between px-5 sm:px-10 md:px-20 py-14 dark:bg-black"
+      >
         <div className="md:w-9/12 w-full mr-8">
           <h2 className="text-4xl font-semibold dark:text-white">{name}</h2>
           <img className="w-full mt-10" src={img} alt="" />
@@ -29,7 +40,20 @@ const CourseDetails = () => {
         </div>
         <div className="md:w-3/12 w-full md:mt-20 mt-14">
           <div>
-            <button className="btn btn-primary">Download PDF</button>
+            <ReactToPdf
+              targetRef={ref}
+              filename="UTeachy.pdf"
+              options={options}
+              x={0.5}
+              y={0.5}
+              scale={0.8}
+            >
+              {({ toPdf }) => (
+                <button className="btn btn-primary" onClick={toPdf}>
+                  Download PDF
+                </button>
+              )}
+            </ReactToPdf>
           </div>
           <div>
             <img

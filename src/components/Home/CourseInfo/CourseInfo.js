@@ -6,7 +6,7 @@ const CourseInfo = () => {
     return (
       <div className="lg:flex justify-center items-center px-5 sm:px-10 md:px-20 py-14 dark:bg-black">
         <div className="lg:mr-28 mr-0">
-          <img className="mx-auto" style={{maxWidth: '420px'}} src={Image} alt="" />
+          <img className="mx-auto course-info-img" src={Image} alt="" />
         </div>
         <div className="lg:w-2/6 w-full mt-20 lg:mt-0">
           <button className="btn bg-red-500 border-0 rounded hover:bg-red-600 mb-8">
