@@ -8,11 +8,9 @@ const PrivateRoute = ({children}) => {
     const location = useLocation()
     if(loader) {
         return (
-          <progress
-            className="progress progress-secondary w-full"
-            value="0"
-            max="100"
-          ></progress>
+          <div className="text-center font-semibold text-xl text-sky-600 h-screen">
+            Loading...
+          </div>
         );
     }
     if(!user) {

@@ -3,22 +3,27 @@ import { Navigate, useLoaderData } from 'react-router-dom';
 import swal from "sweetalert";
 
 const Checkout = () => {
+
     const course = useLoaderData();
+
     if(!course) {
       return <Navigate to='/error'></Navigate>
     }
+
     const { img, price, duration, name, lectures, instructorImg } = course;
+
     //order button click success message
     const orderBtnHandle = () => {
         swal("Good job!", "Your Order Done", "success");
     }
+    
     return (
       <div className="lg:flex justify-between px-5 sm:px-10 md:px-20 py-20 dark:bg-black">
         <div className="lg:w-9/12 w-full md:mr-12 sm:mr-2 mt-6 mb-5 lg:mb-0">
           <h2 className="text-4xl font-semibold mb-10 text-center text-sky-600">
             Proceed to Checkout
           </h2>
-          <div className="card md:flex-row flex-col card-side bg-base-100 shadow-xl items-center">
+          <div className="card rounded md:flex-row flex-col card-side bg-base-100 shadow-xl items-center">
             <img className="md:w-5/12 md:my-3 md:mx-5" src={img} alt="" />
             <div className="card-body">
               <h2 className="card-title">{name}</h2>
@@ -47,17 +52,17 @@ const Checkout = () => {
             src={instructorImg}
             alt=""
           />
-          <h3 className="text-xl font-semibold text-sky-800 text-center mt-3">
+          <h3 className="text-xl font-semibold text-sky-800 dark:text-white text-center mt-3">
             Instructor
           </h3>
           <div className="text-center border-y-2 border-gray-100 py-3 mt-4">
-            <p className="text-gray-800 font-semibold">
+            <p className="text-gray-800 dark:text-sky-700 font-semibold">
               Duration:{" "}
               <span className="text-sky-700 uppercase">{duration}hour</span>
             </p>
           </div>
           <div className="text-center border-b-2 border-gray-100 py-3">
-            <p className="text-gray-800 font-semibold">
+            <p className="text-gray-800 dark:text-sky-700 font-semibold">
               Total Price:{" "}
               <span className="text-sky-700 uppercase">${price}</span>
             </p>

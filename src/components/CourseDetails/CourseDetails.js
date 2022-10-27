@@ -18,7 +18,7 @@ const CourseDetails = () => {
       instructorImg,
     } = course;
     return (
-      <div className="md:flex flex-row justify-between px-5 sm:px-10 md:px-20 pt-10 dark:bg-black">
+      <div className="md:flex flex-row justify-between px-5 sm:px-10 md:px-20 py-14 dark:bg-black">
         <div className="md:w-9/12 w-full mr-8">
           <h2 className="text-4xl font-semibold dark:text-white">{name}</h2>
           <img className="w-full mt-10" src={img} alt="" />

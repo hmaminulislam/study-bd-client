@@ -27,6 +27,7 @@ const Login = () => {
       .then((result) => {
         toast.success('Login Successful')
         console.log(result.user);
+        form.reset()
         navigate(from, { replace: true });
       })
       .catch((error) => {

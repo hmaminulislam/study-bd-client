@@ -6,7 +6,7 @@ import Logo from '../../assets/img/logo.png'
 import { FaSun } from 'react-icons/fa';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { HiArrowRightOnRectangle } from "react-icons/hi2";
+import { BsBoxArrowRight } from "react-icons/bs";
 
 const Navbar = () => {
 
@@ -33,9 +33,9 @@ const Navbar = () => {
     
   }
     return (
-      <div className="navbar bg-base-100 py-5 px-2 sm:px-10 md:px-20 dark:text-white dark:bg-black">
-        <div className="navbar-start dark:bg-black dark:text-white">
-          <div className="dropdown dark:bg-black dark:text-white">
+      <div className="navbar bg-primary text-white py-5 px-2 sm:px-10 md:px-20 dark:text-white dark:bg-stone-900">
+        <div className="navbar-start dark:bg-stone-900 dark:text-white">
+          <div className="dropdown dark:bg-stone-900 dark:text-white">
             <label
               tabIndex={0}
               className="btn btn-ghost lg:hidden border-base-300 mr-3"
@@ -75,14 +75,14 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="text-sm text-center md:text-4xl sm:text-3xl sm:font-bold font-semibold text-violet-500 sm:flex items-center dark:text-white"
+            className="text-sm text-center md:text-4xl sm:text-3xl sm:font-bold font-semibold text-white sm:flex items-center dark:text-white"
           >
             <img style={{ maxWidth: "80px" }} src={Logo} alt="" />
             <span className="sm:mr-5">UTeachy</span>
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex dark:bg-black dark:text-white">
-          <ul className="menu menu-horizontal p-0 dark:bg-black dark:text-white">
+        <div className="navbar-center hidden lg:flex dark:bg-stone-900 dark:text-white">
+          <ul className="menu menu-horizontal p-0 dark:bg-stone-900 dark:text-white">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -97,7 +97,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <div className="navbar-end dark:bg-black">
+        <div className="navbar-end dark:bg-stone-900">
           <div onClick={handleThemeSwitch} className="mr-4 cursor-pointer">
             <FaSun className="text-xl mr-1"></FaSun>
             <p className="font-semibold capitalize">{theme}</p>
@@ -114,12 +114,12 @@ const Navbar = () => {
                   alt=""
                 />
               </span>
-              <span
+              <p
                 onClick={logOutBtnHandle}
                 className="ml-3 cursor-pointer text-xl sm:text-3xl text-primary dark:text-white"
               >
-                <HiArrowRightOnRectangle></HiArrowRightOnRectangle>
-              </span>
+                <BsBoxArrowRight></BsBoxArrowRight>
+              </p>
             </>
           ) : (
             <Link className="btn btn-primary" to="login">

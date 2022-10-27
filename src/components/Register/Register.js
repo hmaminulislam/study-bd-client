@@ -1,12 +1,19 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
 
 
 const Register = () => {
 
+  const [error, setError] = useState(null)
   const { createUser, userProfileUpdate } = useContext(AuthContext);
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const navigate = useNavigate();
 
   //Register form button handle
   const submitbtnHandle = (e) => {
@@ -16,12 +23,26 @@ const Register = () => {
     const photoUrl = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
+    setError('')
+    //Strong password check
+    if(password.length < 8) {
+      return setError("Your password must be at least 8 characters");
+    }
+    if (!/^(?=.*[0-9]).*$/.test(password)) {
+      return setError("Password must have at least one digit");
+    }
     createUser(email, password)
       .then((result) => {
         console.log(result.user);
         userInfoUpdate(fullName, photoUrl);
+        form.reset()
+        toast.success("Register Successfull")
+        navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setError(error.message)
+      });
   }
 
   // User Full name and PhotoURL update
@@ -35,6 +56,7 @@ const Register = () => {
     return (
       <div className="flex justify-center pt-8 dark:bg-black">
         <div className="card w-full max-w-sm shadow-2xl bg-zinc-100">
+          {error && <p className='text-center font-semibold text-red-500 pt-3'>{error}</p>}
           <form onSubmit={submitbtnHandle} className="card-body">
             <div className="form-control">
               <label className="label">
