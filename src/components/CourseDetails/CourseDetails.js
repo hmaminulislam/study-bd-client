@@ -37,7 +37,7 @@ const CourseDetails = () => {
               src={instructorImg}
               alt=""
             />
-            <h3 className="text-2xl text-center font-semibold mb-5 md:mt-10 dark:text-white">
+            <h3 className="text-2xl text-center font-semibold mb-5 md:mt-5 mt-2 dark:text-white">
               Instructor
             </h3>
             <div className="flex items-center justify-between border-b-2 border-zinc-100 px-3 py-3 mt-5 dark:text-cyan-700">
@@ -77,7 +77,10 @@ const CourseDetails = () => {
             </div>
           </div>
           <div className="mt-5">
-            <h3 className="text-xl font-semibold text-primary">
+            <h3 className="text-xl text-center font-semibold mb-5 md:mt-5 text-sky-600 dark:text-white">
+              Get premium access
+            </h3>
+            <h3 className="text-xl font-semibold text-primary text-center">
               Price: ${price}
             </h3>
             <Link to={`/checkout/${id}`}>

@@ -116,7 +116,7 @@ const Navbar = () => {
               </span>
               <p
                 onClick={logOutBtnHandle}
-                className="ml-3 cursor-pointer text-xl sm:text-3xl text-primary dark:text-white"
+                className="ml-3 cursor-pointer text-xl sm:text-3xl text-white dark:text-white"
               >
                 <BsBoxArrowRight></BsBoxArrowRight>
               </p>
